@@ -22,6 +22,7 @@ function init () {
     left = document.getElementById("left");
     right = document.getElementById("right");
     rocket = document.getElementById("rocket");
+    rocket.style.left='0px'
     let y = 0;
     let x = 0;
 
@@ -71,7 +72,7 @@ function init () {
 
     left.addEventListener("click", function(event){
         x-= 10;
-        rocket.style.transform = "translateX(" + x + "px)";
+        rocket.style.left = 'x' + "px";
         console.log(x);
     })
 
