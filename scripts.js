@@ -22,8 +22,8 @@ function init () {
     left = document.getElementById("left");
     right = document.getElementById("right");
     rocket = document.getElementById("rocket");
-    let x = document.getElementById("rocket").offsetTop;
-    let y = document.getElementById("rocket").offsetLeft;
+    let y = 0;
+    let x = 0;
 
     button.addEventListener("click", function(event){
       let response = window.confirm("Confirm that the shuttle is ready for takeoff.")
@@ -55,13 +55,31 @@ function init () {
         let height = Number(document.getElementById("spaceShuttleHeight").innerHTML);
         height = height + 10000;
         document.getElementById("spaceShuttleHeight").innerHTML = height;
+        y -= 10;
+        rocket.style.transform = "translateY(" + y + "px)";
+        console.log(y);
     });
 
     down.addEventListener("click", function(event){
         let height = Number(document.getElementById("spaceShuttleHeight").innerHTML);
         height = height - 10000;
         document.getElementById("spaceShuttleHeight").innerHTML = height;
+        y += 10;
+        rocket.style.transform = "translateY(" + y + "px)";
+        console.log(y);
     });
+
+    left.addEventListener("click", function(event){
+        x-= 10;
+        rocket.style.transform = "translateX(" + x + "px)";
+        console.log(x);
+    })
+
+    right.addEventListener("click", function(event){
+        x+= 10;
+        rocket.style.transform = "translateX(" + x + "px)";
+        console.log(x);
+    })
 
 }
 
